@@ -8,7 +8,7 @@ export function findByName(items, name) {
     }
 }
 
-export function getUser(name, password) {
+export function getUser(name) {
     const userString = localStorage.getItem(name);
     if (!userString){
         const newUser = {
