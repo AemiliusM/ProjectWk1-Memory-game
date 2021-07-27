@@ -9,6 +9,7 @@ export function findByName(items, name) {
 }
 
 export function getUser(name) {
+    console.log(name);
     const userString = localStorage.getItem(name);
     if (!userString){
         const newUser = {

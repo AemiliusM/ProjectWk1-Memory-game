@@ -7,8 +7,8 @@ userForm.addEventListener('submit', e =>{
     e.preventDefault();
     const formData = new FormData(userForm);
     const name = formData.get('name');
-    
-    const user = getUser(name);
+    console.log(name);
+    getUser(name);
    
     
 
