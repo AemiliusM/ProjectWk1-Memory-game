@@ -30,3 +30,11 @@
     background-color: aquamarine;
     margin-right: 20px;
 }
+
+.tile.flipped {
+    transform: rotateY(180deg);
+}
+
+.noclick {
+    pointer-events: none;
+}

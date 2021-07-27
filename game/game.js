@@ -1,4 +1,6 @@
-// const gameBoard = document.getElementById('gameboard-id');
+// import { findById } from '../utils.js';
+
+const gameBoard = document.getElementById('gameboard-id');
 // const counterSpan = document.getElementById('counter-span');
 const tiles = document.querySelectorAll('.tile');
 
@@ -12,43 +14,57 @@ const halfPile = arrayCopy.splice(0, 8);
 const fullPile = halfPile.concat(halfPile);
 // above makes a copy but they are in the same order
 const shuffledTiles = fullPile.sort(function(a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
-console.log(shuffledTiles);
-
 
 // TODO
 // make tiles clickable
 // display text on tile when clicked
-console.log(tiles);
 let selected = [];
 let turns = 0;
 let matched = 0;
 tiles.forEach(tile =>{
     tile.addEventListener('click', ()=>{
+        tile.classList.add('noclick');
+        tile.classList.toggle('flipped');
         // tileFlip(tile);
         // tile.classList.add('noclick');
-        console.log('clicked', tile.id);
-        selected.push(tile.id);
+        console.log('clicked', tile);
+        selected.push(tile);
+        console.log(selected);
         if (selected.length === 2){
             turns = turns + 1;
-            console.log(turns);
+            gameBoard.classList.add('noclick');
             // make the board unclickable
             // if selected array equal to two
             // increment turns(not flips - total rounds) 
             // define selected values
-            if (selected[0] === selected[1]){
-                // tile.classList.add('noclick');
+            // Is this necessary for the if?
+            const selected1Id = selected[0].classList.value;
+            console.log(selected[0]);
+            const selected2Id = selected[1].classList.value;
+            console.log(selected1Id, selected2Id);
+            if (selected1Id === selected2Id){
+            // thinking of using findById here
+                console.log(selected);
+                selected[0].classList.add('noclick');
+                selected[1].classList.add('noclick');
+                gameBoard.classList.remove('noclick');
                 matched = matched + 1;
-                console.log(matched);
                 // remove noclick from board
                 // check end game params
                 selected = [];
+                console.log('matched', selected);
             } else {
+                selected[0].classList.toggle('flipped');
+                selected[1].classList.toggle('flipped');
+                gameBoard.classList.remove('noclick');
+                selected[0].classList.remove('noclick');
+                selected[1].classList.remove('noclick');
                 selected = [];
+                console.log('selected', selected);
                 // remove noclick from board
                 // get flipped back
             }
         }
-
       
     });});
 // grab list item (tile)
