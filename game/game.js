@@ -14,7 +14,19 @@ const fullPile = halfPile.concat(halfPile);
 const shuffledTiles = fullPile.sort(function(a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
 console.log(shuffledTiles);
 
-
 // TODO
 // make tiles clickable
 // display text on tile when clicked
+
+
+// grab list item (tile)
+// store the clicked card's number
+// second click then stored
+// check if it's the second click
+// compare selected items' ids
+// do they match?
+// if so, increment matchTotal and clear clicked array
+// if not, flip back and clear clicked array
+// 
+// when flipped either add classList or toggle "is flipped"
+// 
