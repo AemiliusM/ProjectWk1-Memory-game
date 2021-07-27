@@ -26,4 +26,11 @@ export function setUser(userObject) {
     const userString = JSON.stringify(userObject);
     localStorage.setItem(userObject.username, userString);
 }
+export function findById(items, id) {
+    for (const item of items) {
+        if (item.id === id) {
+            return item;
+        }
+    }
+}
 
