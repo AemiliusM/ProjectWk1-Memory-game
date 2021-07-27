@@ -7,7 +7,7 @@ const tiles = document.querySelectorAll('.tile');
 
 // TODO
 // Make deck better than this
-const cardArray = ['1', '2', '3', '4', '5', '6', '7', '8'];
+const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8'];
 // don't know if we need to push into something else in order to shuffle
 
 
@@ -18,7 +18,7 @@ let matched = 0;
 // TODO
 // make this a function
 // shuffle deck
-const arrayCopy = cardArray.slice().sort(function(a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
+const arrayCopy = tileArray.slice().sort(function(a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
 const halfPile = arrayCopy.splice(0, 8);
 const fullPile = halfPile.concat(halfPile);
 // above makes a copy but they are in the same order
@@ -46,12 +46,12 @@ function tileFlip() {
                     matchedSpan.textContent = `Matches: ${matched}`;
                     selected = [];
                 } else {
-                    selected[0].classList.toggle('flipped');
-                    selected[1].classList.toggle('flipped');
-                    gameBoard.classList.remove('noclick');
-                    selected[0].classList.remove('noclick');
-                    selected[1].classList.remove('noclick');
-                    selected = [];
+                    setTimeout(() => {selected[0].classList.toggle('flipped');
+                        selected[1].classList.toggle('flipped');
+                        gameBoard.classList.remove('noclick');
+                        selected[0].classList.remove('noclick');
+                        selected[1].classList.remove('noclick');
+                        selected = [];}, 2500);
                 }
             }
           
