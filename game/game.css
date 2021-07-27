@@ -1,40 +1,45 @@
 #gameboard-id {
-    height: 400px;
-    width: 400px;
+    height: 600px;
+    width: 600px;
     border: 1px solid black;
     background-color: darkgray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 20px;
+    display: grid;
 }
 #tiles-list {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
     justify-content: center;
-    margin-left: 0;
 }
 
 .tile {
     height: 100px;
     width: 100px;
     border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    font-size: 2rem;
-    background-color: aquamarine;
     margin-right: 20px;
+    position: relative;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
+}
+
+.tile img{
+    height: 100%;
 }
 
 .tile.flipped {
-    transform: rotateY(180deg);
+    transform: rotateX(900deg);
 }
 
 .noclick {
     pointer-events: none;
+    box-shadow: none;
+}
+.tile-face {
+    position: absolute;
+}
+.tile-front{
+    transform: rotateX(900deg);
 }
