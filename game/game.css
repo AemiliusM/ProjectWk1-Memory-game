@@ -23,6 +23,7 @@
     transition: transform 2s;
     transform-style: preserve-3d;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
+    
 }
 
 .tile img{

@@ -59,3 +59,5 @@ function tileFlip() {
     });
 }
 tileFlip();
+// update user object - grab turns,
+// end of game function to set ending conditions and set user object
