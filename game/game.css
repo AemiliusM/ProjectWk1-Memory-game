@@ -1,10 +1,14 @@
+body {
+    background-color: lavenderblush;
+}
 #gameboard-id {
     height: 600px;
     width: 600px;
-    border: 1px solid black;
-    background-color: darkgray;
+    border: 1px solid purple;
+    background-image: linear-gradient(to top, red, blue);
     display: grid;
     z-index: -5;
+    border-radius: 5%;
 }
 #tiles-list {
     height: 100%;
@@ -13,6 +17,7 @@
     grid-template-columns: repeat(4, auto);
     grid-gap: 10px;
     justify-content: center;
+    align-items: center;
 }
 
 .tile {
@@ -24,21 +29,38 @@
     transition: transform 2s;
     transform-style: preserve-3d;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
-    
+    background: radial-gradient(rgb(156, 248, 156), rgb(199, 116, 199), purple);
+    border-radius: 10%;
 }
 
 .tile img{
     height: 100%;
-}
+    border-radius: 10%;
 
-.tile.flipped {
-    transform: rotateX(900deg);
 }
 
 .noclick {
     pointer-events: none;
     box-shadow: none;
 }
+.noclick > img {
+    /* border: 2px solid orange; */
+
+}
+.tile.flipped {
+    transform: rotateX(900deg);
+}
+.matched{
+    /* border: 7px solid rgb(149, 241, 149); */
+
+}
+.matched > img {
+    /* border: 7px solid rgb(149, 241, 149); */
+    border-radius: 10%; 
+    backface-visibility: hidden;
+
+}
+
 .tile-face {
     position: absolute;
 }
@@ -54,7 +76,7 @@
     width: 100%;
     height: 100%;
     background-image: url('../images/background.jpeg');
-
+    border-radius: 5%;
 }
 
 .win-span{

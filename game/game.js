@@ -40,8 +40,12 @@ function tileFlip() {
                 const selected1Id = selected[0].classList.value;
                 const selected2Id = selected[1].classList.value;
                 if (selected1Id === selected2Id){
+                    // setTimeout(() => {
+                    // }, 2000);
                     selected[0].classList.add('noclick');
+                    selected[0].classList.add('matched');
                     selected[1].classList.add('noclick');
+                    selected[1].classList.add('matched');
                     gameBoard.classList.remove('noclick');
                     matched = matched + 1;
                     matchedSpan.textContent = `Matches: ${matched}`;
