@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lavenderblush;
+}
+#results-div {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#results-name, #results-score {
+    text-align: center;
+    font-size: 3rem;
+    color: cornflowerblue;
+}
+#play-again-button {
+    width: fit-content;
+    text-align: center;
+}
