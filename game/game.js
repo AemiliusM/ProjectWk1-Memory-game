@@ -4,6 +4,7 @@ const gameBoard = document.getElementById('gameboard-id');
 const turnSpan = document.getElementById('counter-span');
 const matchedSpan = document.getElementById('matched-span');
 const tiles = document.querySelectorAll('.tile');
+const tileList = document.getElementById('tiles-list');
 
 // TODO
 // Make deck better than this
@@ -45,6 +46,7 @@ function tileFlip() {
                     matched = matched + 1;
                     matchedSpan.textContent = `Matches: ${matched}`;
                     selected = [];
+                    endGame();
                 } else {
                     setTimeout(() => {selected[0].classList.toggle('flipped');
                         selected[1].classList.toggle('flipped');
@@ -58,6 +60,34 @@ function tileFlip() {
         });
     });
 }
+const audio = new Audio('../assets/sounds/TADA.WAV');
 tileFlip();
+console.log(matched, shuffledTiles.length);
+function endGame() {
+    if (matched === shuffledTiles.length / 2) {
+        // put winning sound in
+        audio.play();
+        const winSpan = document.createElement('span');
+        const winDiv = document.createElement('div');
+        winSpan.classList.add('win-span');
+        winDiv.classList.add('win-div');
+        winSpan.textContent = `${name}YOU WON`;
+        winDiv.appendChild(winSpan);
+        gameBoard.removeChild(tileList);
+        gameBoard.appendChild(winDiv);
+        setTimeout(() => { 
+            // window.location.replace('../results');
+        }, 3500);
+    }
+} 
 // update user object - grab turns,
 // end of game function to set ending conditions and set user object
+// if matched pairs = shuffed tiles/2 - end game
+// sounds and span to display win
+// update user
+// redirect to results automaticaly
+// give tiles property of location on grid
+// get fuction that will randomly assign value to property
+// grid template area
+// assign key to both tile and grid
+// make function to make multiple divs

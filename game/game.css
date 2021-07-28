@@ -4,6 +4,7 @@
     border: 1px solid black;
     background-color: darkgray;
     display: grid;
+    z-index: -5;
 }
 #tiles-list {
     height: 100%;
@@ -43,4 +44,23 @@
 }
 .tile-front{
     transform: rotateX(900deg);
+}
+
+.win-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.jpeg');
+
+}
+
+.win-span{
+        font-size: 4rem;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        color: rgb(13, 151, 197);
+        text-align: center;
+        width: 100%;
 }
