@@ -114,7 +114,7 @@ function endGame() {
         // gameBoard.removeChild(tileList);
         gameBoard.appendChild(winDiv);
         setTimeout(() => { 
-            window.location.replace('../results');
+            window.location.replace('../results/');
         }, 3500);
     }
 } 
