@@ -1,4 +1,4 @@
-// import { findById } from '../utils.js';
+import { getLocal, setUser } from '../utils.js';
 
 const gameBoard = document.getElementById('gameboard-id');
 const turnSpan = document.getElementById('counter-span');
@@ -9,7 +9,6 @@ const matchedSpan = document.getElementById('matched-span');
 // Make deck better than this
 const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8'];
 // don't know if we need to push into something else in order to shuffle
-
 
 
 let selected = [];
@@ -61,6 +60,8 @@ function shuffleTiles() {
     // use shuffledTile array to assign an id to each div
     return shuffledTiles;
 }
+const user = getLocal();
+console.log(user);
 
 // TODO
 // put this somewhere and import it
@@ -73,6 +74,8 @@ function tileFlip() {
             selected.push(tile);
             if (selected.length === 2) {
                 turns = turns + 1;
+                user.turns = turns;
+                setUser(user);
                 turnSpan.textContent = `Turns: ${turns}`;
                 gameBoard.classList.add('noclick');
                 const selected1Id = selected[0].classList.value;
