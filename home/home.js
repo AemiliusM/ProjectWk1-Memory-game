@@ -11,5 +11,5 @@ userForm.addEventListener('submit', e =>{
     };
     setUser(userObject);
 
-    window.location.replace('../game/');
+    window.location = '../game/';
 });

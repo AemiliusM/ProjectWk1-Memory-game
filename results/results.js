@@ -9,6 +9,6 @@ resultsName.textContent = `${user.username}, you Won!`;
 resultsScore.textContent = `You used ${user.turns} turns to match the tiles`;
 
 endButton.addEventListener('click', () => {
-    window.location.replace('../');
+    window.location = '../';
     localStorage.clear();
 });
