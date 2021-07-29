@@ -3,7 +3,7 @@
 const gameBoard = document.getElementById('gameboard-id');
 const turnSpan = document.getElementById('counter-span');
 const matchedSpan = document.getElementById('matched-span');
-const tileList = document.getElementById('tiles-list');
+// const tileList = document.getElementById('tiles-list');
 
 // TODO
 // Make deck better than this
@@ -62,7 +62,7 @@ function shuffleTiles() {
 // put this somewhere and import it
 const tiles = document.querySelectorAll('.tile');
 function tileFlip() {
-    tiles.forEach(tile =>{
+    tiles.forEach(tile => {
         tile.addEventListener('click', () => {
             tile.classList.add('noclick');
             tile.classList.toggle('flipped');
@@ -98,7 +98,9 @@ function tileFlip() {
     });
 }
 const audio = new Audio('../assets/sounds/TADA.WAV');
+
 tileFlip();
+
 function endGame() {
     if (matched === shuffledTiles.length / 2) {
             // put winning sound in
@@ -109,13 +111,17 @@ function endGame() {
         winDiv.classList.add('win-div');
         winSpan.textContent = `${name}YOU WON`;
         winDiv.appendChild(winSpan);
-        gameBoard.removeChild(tileList);
+        // gameBoard.removeChild(tileList);
         gameBoard.appendChild(winDiv);
         setTimeout(() => { 
             window.location.replace('../results');
         }, 3500);
     }
 } 
+
+// TO INCORPORATE BACKGROUND IMAGE REVEAL ... when tiles are matched, display "none" or "hidden" on removed tiles
+//  resize the background and add underlying image
+
     // update user object - grab turns,
     // end of game function to set ending conditions and set user object
 // if matched pairs = shuffed tiles/2 - end game
