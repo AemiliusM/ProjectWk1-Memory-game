@@ -6,7 +6,7 @@ body {
     height: 600px;
     width: 600px;
     border: 1px solid purple;
-    background-image: linear-gradient(to top, red, blue);
+    background-image: linear-gradient(to top left, rgb(243, 206, 85), rgb(74, 183, 233), rgb(221, 152, 163));
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -14,16 +14,6 @@ body {
     align-content: center;
     border-radius: 5%;
 }
-
-/* #tiles-list {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
-    justify-content: center;
-    align-items: center;
-} */
 
 .tile {
     height: 100px;
@@ -36,11 +26,12 @@ body {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
     border-radius: 10%;
     margin-bottom: 15px;
-    /* backface-visibility: hidden; */
 }
+
 .tile-front {
     background: radial-gradient(rgb(156, 248, 156), rgb(199, 116, 199), purple);
 }
+
 .tile-front, .tile-back {
     height: 100%;
     width: 100%;
@@ -53,31 +44,27 @@ body {
     height: 100%;
     border-radius: 10%;
 }
+
 .tile-back {
     transform: rotateX(180deg);
 }
+
 .noclick {
     pointer-events: none;
     box-shadow: none;
-}
-
-.noclick > img {
-    /* border: 2px solid orange; */
 }
 
 .tile.flipped {
     transform: rotateX(900deg);
 }
 
-.matched {
-    /* border: 7px solid rgb(149, 241, 149); */
-}
-
 .matched > img {
-    /* border: 7px solid rgb(149, 241, 149); */
     border-radius: 10%; 
 }
 
+.hidden {
+    display: none;
+}
 
 .win-div {
     display: flex;

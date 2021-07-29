@@ -3,33 +3,14 @@ import { getLocal, setUser } from '../utils.js';
 const gameBoard = document.getElementById('gameboard-id');
 const turnSpan = document.getElementById('counter-span');
 const matchedSpan = document.getElementById('matched-span');
-// const tileList = document.getElementById('tiles-list');
-
-// TODO
-// Make deck better than this
-const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8'];
-// don't know if we need to push into something else in order to shuffle
-
+const counterDiv = document.getElementById('counter-div');
+const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8'];//used in shuffle
 
 let selected = [];
 let turns = 0;
 let matched = 0;
-// TODO
-// make this a function
-// shuffle deck
 
-//  render function
 const shuffledTiles = shuffleTiles();
-// for loop to initialize process for rendering tiles
-/*
-for (let tile of shuffledTiles) {
-    looping through, call renderTile, inside of renderTile pass tile as a parameter which will render our div and img elements
-    append that to the gameBoard
-    (1) when we call renderTile, const tileDiv = renderTile(tile)
-    (2) append tileDiv to the gameBoard
-    
-}
-*/
 
 for (let tile of shuffledTiles) {
     const tileDiv = renderTile(tile);
@@ -41,13 +22,14 @@ function renderTile(id) {
     const tileDiv = document.createElement('div');
     const tileImg = document.createElement('img');
     const tileDivFront = document.createElement('div');
-    tileDivFront.classList.add('tile-front');
     const tileDivBack = document.createElement('div');
+
+    tileDivFront.classList.add('tile-front');
     tileDivBack.classList.add('tile-back');
     tileImg.src = `../images/image${id}.jpg`;
-    // insert the id into the image
     tileDivBack.appendChild(tileImg);
     tileDiv.append(tileDivFront, tileDivBack);
+
     return tileDiv;
 }
 
@@ -60,17 +42,17 @@ function shuffleTiles() {
     // use shuffledTile array to assign an id to each div
     return shuffledTiles;
 }
-const user = getLocal();
 
-// TODO
-// put this somewhere and import it
+const user = getLocal();
 const tiles = document.querySelectorAll('.tile');
+
 function tileFlip() {
     tiles.forEach(tile => {
         tile.addEventListener('click', () => {
             tile.classList.add('noclick');
             tile.classList.toggle('flipped');
             selected.push(tile);
+            
             if (selected.length === 2) {
                 turns = turns + 1;
                 user.turns = turns;
@@ -79,9 +61,8 @@ function tileFlip() {
                 gameBoard.classList.add('noclick');
                 const selected1Id = selected[0].classList.value;
                 const selected2Id = selected[1].classList.value;
+                
                 if (selected1Id === selected2Id) {
-                    // setTimeout(() => {
-                        // }, 2000);
                     selected[0].classList.add('noclick');
                     selected[0].classList.add('matched');
                     selected[1].classList.add('noclick');
@@ -91,7 +72,9 @@ function tileFlip() {
                     matchedSpan.textContent = `Matches: ${matched}`;
                     selected = [];
                     endGame();
-                } else {
+                } 
+                
+                else {
                     setTimeout(() => {selected[0].classList.toggle('flipped');
                         selected[1].classList.toggle('flipped');
                         gameBoard.classList.remove('noclick');
@@ -103,13 +86,15 @@ function tileFlip() {
         });
     });
 }
+
 const audio = new Audio('../assets/sounds/TADA.WAV');
 
 tileFlip();
 
 function endGame() {
-    if (matched === shuffledTiles.length / 2) {
-            // put winning sound in
+    if (matched === shuffledTiles.length / 4) {
+        // put winning sound in
+        audio.volume = 0.1;
         audio.play();
         const winSpan = document.createElement('span');
         const winDiv = document.createElement('div');
@@ -118,24 +103,9 @@ function endGame() {
         winSpan.textContent = `${name}YOU WON`;
         winDiv.appendChild(winSpan);
         // gameBoard.removeChild(tileList);
-        gameBoard.appendChild(winDiv);
+        counterDiv.appendChild(winDiv);
         setTimeout(() => { 
             window.location.replace('../results/');
-        }, 3500);
+        }, 4000);
     }
 } 
-
-// TO INCORPORATE BACKGROUND IMAGE REVEAL ... when tiles are matched, display "none" or "hidden" on removed tiles
-//  resize the background and add underlying image
-
-    // update user object - grab turns,
-    // end of game function to set ending conditions and set user object
-// if matched pairs = shuffed tiles/2 - end game
-// sounds and span to display win
-// update user
-// redirect to results automaticaly
-// give tiles property of location on grid
-// get fuction that will randomly assign value to property
-// grid template area
-// assign key to both tile and grid
-// make function to make multiple divs
