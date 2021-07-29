@@ -67,13 +67,13 @@ function tileFlip() {
             tile.classList.add('noclick');
             tile.classList.toggle('flipped');
             selected.push(tile);
-            if (selected.length === 2){
+            if (selected.length === 2) {
                 turns = turns + 1;
                 turnSpan.textContent = `Turns: ${turns}`;
                 gameBoard.classList.add('noclick');
                 const selected1Id = selected[0].classList.value;
                 const selected2Id = selected[1].classList.value;
-                if (selected1Id === selected2Id){
+                if (selected1Id === selected2Id) {
                     // setTimeout(() => {
                         // }, 2000);
                     selected[0].classList.add('noclick');
@@ -94,7 +94,6 @@ function tileFlip() {
                         selected = [];}, 2500);
                 }
             }
-                
         });
     });
 }
@@ -113,7 +112,7 @@ function endGame() {
         gameBoard.removeChild(tileList);
         gameBoard.appendChild(winDiv);
         setTimeout(() => { 
-                // window.location.replace('../results');
+            window.location.replace('../results');
         }, 3500);
     }
 } 
