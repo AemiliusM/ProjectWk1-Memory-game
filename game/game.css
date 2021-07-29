@@ -1,15 +1,21 @@
 body {
     background-color: lavenderblush;
 }
+
 #gameboard-id {
     height: 600px;
     width: 600px;
     border: 1px solid purple;
     background-image: linear-gradient(to top, red, blue);
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     z-index: -5;
     border-radius: 5%;
 }
+
 #tiles-list {
     height: 100%;
     width: 100%;
@@ -31,9 +37,10 @@ body {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
     background: radial-gradient(rgb(156, 248, 156), rgb(199, 116, 199), purple);
     border-radius: 10%;
+    margin-bottom: 15px;
 }
 
-.tile img{
+.tile img {
     height: 100%;
     border-radius: 10%;
 
@@ -43,32 +50,35 @@ body {
     pointer-events: none;
     box-shadow: none;
 }
+
 .noclick > img {
     /* border: 2px solid orange; */
 
 }
+
 .tile.flipped {
     transform: rotateX(900deg);
 }
-.matched{
+.matched
+{
     /* border: 7px solid rgb(149, 241, 149); */
 
 }
+
 .matched > img {
     /* border: 7px solid rgb(149, 241, 149); */
     border-radius: 10%; 
-    backface-visibility: hidden;
-
 }
 
-.tile-face {
+.tile > .tile-face {
     position: absolute;
 }
-.tile-front{
+
+.tile > .tile-front {
     transform: rotateX(900deg);
 }
 
-.win-div{
+.win-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -79,7 +89,7 @@ body {
     border-radius: 5%;
 }
 
-.win-span{
+.win-span {
         font-size: 4rem;
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         color: rgb(13, 151, 197);
