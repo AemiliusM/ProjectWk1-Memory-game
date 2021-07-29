@@ -1,7 +1,5 @@
 import { setUser } from '../utils.js';
- // import functions and grab DOM elements
 const userForm = document.getElementById('user');
-
 
 userForm.addEventListener('submit', e =>{
     e.preventDefault();
@@ -12,9 +10,6 @@ userForm.addEventListener('submit', e =>{
         turns: 0
     };
     setUser(userObject);
-    console.log(userObject);
-   
-    
 
     window.location.replace('../game/');
 });
