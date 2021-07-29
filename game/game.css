@@ -37,13 +37,14 @@ body {
     background: radial-gradient(rgb(156, 248, 156), rgb(199, 116, 199), purple);
     border-radius: 10%;
     margin-bottom: 15px;
-    backface-visibility: hidden;
+    /* backface-visibility: hidden; */
 }
 
 .tile img {
     height: 100%;
     border-radius: 10%;
     /* backface-visibility: hidden; */
+    transform: rotateX(180deg);
 }
 
 .noclick {
