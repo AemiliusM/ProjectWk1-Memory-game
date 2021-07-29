@@ -61,7 +61,6 @@ function shuffleTiles() {
     return shuffledTiles;
 }
 const user = getLocal();
-console.log(user);
 
 // TODO
 // put this somewhere and import it
