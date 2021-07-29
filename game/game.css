@@ -34,19 +34,28 @@ body {
     transition: transform 2s;
     transform-style: preserve-3d;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
-    background: radial-gradient(rgb(156, 248, 156), rgb(199, 116, 199), purple);
     border-radius: 10%;
     margin-bottom: 15px;
     /* backface-visibility: hidden; */
+}
+.tile-front {
+    background: radial-gradient(rgb(156, 248, 156), rgb(199, 116, 199), purple);
+}
+.tile-front, .tile-back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10%;
 }
 
 .tile img {
     height: 100%;
     border-radius: 10%;
-    /* backface-visibility: hidden; */
+}
+.tile-back {
     transform: rotateX(180deg);
 }
-
 .noclick {
     pointer-events: none;
     box-shadow: none;
@@ -69,13 +78,6 @@ body {
     border-radius: 10%; 
 }
 
-.tile > .tile-face {
-    position: absolute;
-}
-
-.tile > .tile-front {
-    transform: rotateX(900deg);
-}
 
 .win-div {
     display: flex;

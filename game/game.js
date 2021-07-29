@@ -41,10 +41,14 @@ for (let tile of shuffledTiles) {
 function renderTile(id) {
     const tileDiv = document.createElement('div');
     const tileImg = document.createElement('img');
-    tileImg.classList.add('tile-face', 'tile-front');
+    const tileDivFront = document.createElement('div');
+    tileDivFront.classList.add('tile-front');
+    const tileDivBack = document.createElement('div');
+    tileDivBack.classList.add('tile-back');
     tileImg.src = `../images/image${id}.jpg`;
     // insert the id into the image
-    tileDiv.appendChild(tileImg);
+    tileDivBack.appendChild(tileImg);
+    tileDiv.append(tileDivFront, tileDivBack);
     return tileDiv;
 }
 
