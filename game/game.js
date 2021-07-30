@@ -45,7 +45,7 @@ function shuffleTiles() {
 
 const user = getLocal();
 const tiles = document.querySelectorAll('.tile');
-const audio2 = new Audio('../assets/sounds/page-flip-01a.wav');
+const audio2 = new Audio('../assets/sounds/Brick.wav');
 
 function tileFlip() {
     tiles.forEach(tile => {
