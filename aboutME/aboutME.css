@@ -2,7 +2,6 @@ body {
     background-color: lavenderblush;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 span {
@@ -19,4 +18,8 @@ div {
 img {
     height: 200px;
     width: auto;
+}
+.container {
+    display: flex;
+    flex-direction: row;
 }
