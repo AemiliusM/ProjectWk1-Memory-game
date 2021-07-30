@@ -92,7 +92,7 @@ const audio = new Audio('../assets/sounds/TADA.WAV');
 tileFlip();
 
 function endGame() {
-    if (matched === shuffledTiles.length / 4) {
+    if (matched === shuffledTiles.length / 2) {
         // put winning sound in
         audio.volume = 0.1;
         audio.play();

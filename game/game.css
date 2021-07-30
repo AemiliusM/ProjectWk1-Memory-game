@@ -1,31 +1,31 @@
 body {
     background-color: lavenderblush;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #gameboard-id {
-    height: 600px;
-    width: 600px;
+    height: 45rem;
+    width: 45rem;
     border: 1px solid purple;
-    background-image: linear-gradient(to top left, rgb(243, 206, 85), rgb(74, 183, 233), rgb(221, 152, 163));
+    background-size: cover;
+    background-image: url(../images/dummy_tileBack.png);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    border-radius: 5%;
+
 }
 
 .tile {
-    height: 100px;
-    width: 100px;
+    height: 11.1rem;
+    width: 11.1rem;
     border: 1px solid black;
-    margin-right: 20px;
     position: relative;
     transition: transform 2s;
     transform-style: preserve-3d;
-    box-shadow: 5px 5px rgba(0, 0, 0, 0.349);
-    border-radius: 10%;
-    margin-bottom: 15px;
 }
 
 .tile-front {
@@ -37,12 +37,10 @@ body {
     width: 100%;
     position: absolute;
     backface-visibility: hidden;
-    border-radius: 10%;
 }
 
 .tile img {
     height: 100%;
-    border-radius: 10%;
 }
 
 .tile-back {
@@ -58,8 +56,9 @@ body {
     transform: rotateX(900deg);
 }
 
-.matched > img {
-    border-radius: 10%; 
+.matched {
+    visibility: hidden;
+    animation: match linear 3s;
 }
 
 .hidden {
@@ -83,4 +82,8 @@ body {
         color: rgb(13, 151, 197);
         text-align: center;
         width: 100%;
+}
+@keyframes match{
+    from { visibility: visible; }
+    to { visibility: hidden; }
 }
