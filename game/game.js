@@ -45,10 +45,13 @@ function shuffleTiles() {
 
 const user = getLocal();
 const tiles = document.querySelectorAll('.tile');
+const audio2 = new Audio('../assets/sounds/page-flip-01a.wav');
 
 function tileFlip() {
     tiles.forEach(tile => {
         tile.addEventListener('click', () => {
+            audio2.volume = 0.3;
+            audio2.play();
             tile.classList.add('noclick');
             tile.classList.toggle('flipped');
             selected.push(tile);
@@ -86,13 +89,12 @@ function tileFlip() {
         });
     });
 }
-
 const audio = new Audio('../assets/sounds/TADA.WAV');
 
 tileFlip();
 
 function endGame() {
-    if (matched === shuffledTiles.length / 4) {
+    if (matched === shuffledTiles.length / 2) {
         // put winning sound in
         audio.volume = 0.1;
         audio.play();
