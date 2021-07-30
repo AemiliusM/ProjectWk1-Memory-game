@@ -10,12 +10,15 @@ test('test to see if getLocal pulls from expected from localStorage', (expect) =
         username: 'Mr Test',
         turns: 0
     };
+
     const userInfo = {
         username: 'Mr Test',
         turns: 0
     };
+
     const userString = JSON.stringify(userInfo);
     localStorage.setItem(USER, userString);
+
     //Act 
     // Call the function you're testing and set the result to a const
     const actual = getLocal();
@@ -29,11 +32,14 @@ test('test to see if setUser puts user info into localStorage', (expect) => {
     const userInfo = {
         user: 'info'
     };
+
     const expected = {
         user: 'info'
     };
+
     setUser(userInfo);
 
     const actual = getLocal();
+    
     expect.deepEqual(actual, expected);
 });

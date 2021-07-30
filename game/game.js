@@ -4,7 +4,7 @@ const gameBoard = document.getElementById('gameboard-id');
 const turnSpan = document.getElementById('counter-span');
 const matchedSpan = document.getElementById('matched-span');
 const counterDiv = document.getElementById('counter-div');
-const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8'];//used in shuffle
+const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8']; //used in shuffle
 
 let selected = [];
 let turns = 0;
@@ -78,12 +78,14 @@ function tileFlip() {
                 } 
                 
                 else {
-                    setTimeout(() => {selected[0].classList.toggle('flipped');
+                    setTimeout(() => {
+                        selected[0].classList.toggle('flipped');
                         selected[1].classList.toggle('flipped');
                         gameBoard.classList.remove('noclick');
                         selected[0].classList.remove('noclick');
                         selected[1].classList.remove('noclick');
-                        selected = [];}, 2500);
+                        selected = [];
+                    }, 2500);
                 }
             }
         });

@@ -10,13 +10,12 @@ body {
     width: 45rem;
     border: 1px solid purple;
     background-size: cover;
-    background-image: url(../images/dummy_tileBack.png);
+    background-image: url(../images/base-layer.png);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-
 }
 
 .tile {
@@ -83,7 +82,8 @@ body {
         text-align: center;
         width: 100%;
 }
-@keyframes match{
+
+@keyframes match {
     from { visibility: visible; }
     to { visibility: hidden; }
 }
