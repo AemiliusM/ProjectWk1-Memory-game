@@ -1,7 +1,7 @@
 import { setUser } from '../utils.js';
 const userForm = document.getElementById('user');
 
-userForm.addEventListener('submit', e =>{
+userForm.addEventListener('submit', e => {
     e.preventDefault();
     const formData = new FormData(userForm);
     const name = formData.get('name');

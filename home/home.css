@@ -1,6 +1,7 @@
 body {
     background-color: lavenderblush;
 }
+
 #form-div {
     height: 500px;
     display: flex;
@@ -8,6 +9,7 @@ body {
     align-content: center;
     justify-content: center;
 }
+
 #user {
     display: flex;
     flex-direction: column;
@@ -15,15 +17,18 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 #name {
     color: cornflowerblue;
     width: fit-content;
 }
+
 #button-id {
     margin-top: 20px;
     width: fit-content;
     background-color: rgb(255, 247, 140);
 }
+
 h2, h4 {
     color: cornflowerblue;
 }
