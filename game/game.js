@@ -4,7 +4,6 @@ const gameBoard = document.getElementById('gameboard-id');
 const turnSpan = document.getElementById('counter-span');
 const matchedSpan = document.getElementById('matched-span');
 const counterDiv = document.getElementById('counter-div');
-const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8']; //used in shuffle
 
 let selected = [];
 let turns = 0;
@@ -17,6 +16,7 @@ for (let tile of shuffledTiles) {
     tileDiv.classList.add(tile, 'tile');
     gameBoard.appendChild(tileDiv);
 }
+// might be nice to add a game-utils file and move these functions out of this file
 
 function renderTile(id) {
     const tileDiv = document.createElement('div');
@@ -34,10 +34,8 @@ function renderTile(id) {
 }
 
 function shuffleTiles() {
-    const arrayCopy = tileArray.slice().sort(function(a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
-    const halfPile = arrayCopy.splice(0, 8);
-    const fullPile = halfPile.concat(halfPile);
-    // above makes a copy but they are in the same order
+    const tileArray = ['1', '2', '3', '4', '5', '6', '7', '8']; //used in shuffle
+    const fullPile = [...tileArray, ...tileArray];
     const shuffledTiles = fullPile.sort(function(a, b) { return 0.5 - Math.random(); }); // eslint-disable-line
     // use shuffledTile array to assign an id to each div
     return shuffledTiles;
@@ -57,7 +55,7 @@ function tileFlip() {
             selected.push(tile);
             
             if (selected.length === 2) {
-                turns = turns + 1;
+                turns += 1;
                 user.turns = turns;
                 setUser(user);
                 turnSpan.textContent = `Turns: ${turns}`;
@@ -66,12 +64,11 @@ function tileFlip() {
                 const selected2Id = selected[1].classList.value;
                 
                 if (selected1Id === selected2Id) {
-                    selected[0].classList.add('noclick');
-                    selected[0].classList.add('matched');
-                    selected[1].classList.add('noclick');
-                    selected[1].classList.add('matched');
+                    selected.forEach(tile => {
+                        tile.classList.add('noclick', 'matched');
+                    });
                     gameBoard.classList.remove('noclick');
-                    matched = matched + 1;
+                    matched += 1;
                     matchedSpan.textContent = `Matches: ${matched}`;
                     selected = [];
                     endGame();
